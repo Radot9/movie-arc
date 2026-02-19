@@ -21,6 +21,9 @@ jobs:
       - run: npm run build
         env:
           VITE_PROXY_BASE: ${{ vars.VITE_PROXY_BASE }}
+      - name: Show index.html asset paths
+        run: |
+          sed -n '1,40p' dist/index.html
       - name: List dist contents
         run: |
           ls -R dist
